@@ -52,7 +52,26 @@ namespace HashTableProgram
                 }
             }
             Console.WriteLine("\"{0}\" occurs {1} times in the given sentence.", value, frequency);
-        }    
+        }
+        public void Remove(K key)
+        {
+            int position = GetArrayPosition(key);
+            LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
+            bool itemFound = false;
+            KeyValue<K, V> foundItem = default(KeyValue<K, V>);
+            foreach (KeyValue<K, V> item in linkedList)
+            {
+                if (item.Key.Equals(key))
+                {
+                    itemFound = true;
+                    foundItem = item;
+                }
+            }
+            if (itemFound)
+            {
+                linkedList.Remove(foundItem);
+            }
+        }
     }
     public struct KeyValue<k, v>
     {

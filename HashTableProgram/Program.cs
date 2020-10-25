@@ -38,6 +38,8 @@ namespace HashTableProgram
             hash2.Add("17", "avoidable");
             hash2.Add("18", "situations");
             hash2.GetFrequency("paranoid");
+            hash2.Remove("17");
+            hash2.GetFrequency("avoidable");
             Console.ReadKey();
         }
     }
